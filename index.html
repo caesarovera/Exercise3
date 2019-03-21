@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercise 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Search</h2> 
+  <input class="form-control" id="myInput" type="text" placeholder="Search..">
+  <br>
+  <table class="table" id="root">
+          <thead class="thead-dark">
+            <tr>
+              <th>Nama</th>
+              <th>Tinggi Badan</th>
+              <th>Berat Badan</th>
+              <th>Warna Rambut</th>
+              <th>Warna Kulit</th>
+              <th>Warna Mata</th>
+              <th>Tanggal lahir</th>
+              <th>Jenis Kelamin</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+</body>
+<script src="swapi.js"></script>
+<script>
+    $(document).ready(function(){
+      $("#myInput").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#myTable tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+</html>
